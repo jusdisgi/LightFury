@@ -1,0 +1,62 @@
+{
+  "//": "KiKit panelization preset for LightFury. Run against lightfury_both.kicad_pcb,",
+  "//2": "which already contains BOTH routed halves (two Edge.Cuts loops). layout 1x1 means",
+  "//3": "'frame the existing content as-is' rather than tiling. KiKit auto-detects the two",
+  "//4": "board loops and bridges them to the frame with tabs/mousebites. Tuned for JLCPCB.",
+
+  "layout": {
+    "type": "grid",
+    "rows": 1,
+    "cols": 1,
+    "hspace": "3mm",
+    "vspace": "3mm",
+    "rotation": "0deg"
+  },
+  "source": {
+    "type": "auto",
+    "tolerance": "5mm"
+  },
+  "tabs": {
+    "type": "spacing",
+    "spacing": "25mm",
+    "width": "3mm"
+  },
+  "cuts": {
+    "type": "mousebites",
+    "drill": "0.5mm",
+    "spacing": "0.8mm",
+    "offset": "0.2mm",
+    "prolong": "0.3mm"
+  },
+  "framing": {
+    "type": "railstb",
+    "width": "5mm",
+    "space": "3mm",
+    "fillet": "1mm"
+  },
+  "tooling": {
+    "type": "4hole",
+    "hoffset": "2.5mm",
+    "voffset": "2.5mm",
+    "size": "1.5mm"
+  },
+  "fiducials": {
+    "type": "4fid",
+    "hoffset": "5mm",
+    "voffset": "2.5mm",
+    "coppersize": "1mm",
+    "opening": "2mm"
+  },
+  "text": {
+    "type": "simple",
+    "text": "LightFury v1.0 JLCJLCJLCJLC",
+    "anchor": "mt",
+    "voffset": "2.5mm",
+    "hjustify": "center",
+    "vjustify": "center"
+  },
+  "post": {
+    "millradius": "1mm",
+    "origin": "tl"
+  }
+}

@@ -2314,7 +2314,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "huntercooh:PG1316S"
+		(symbol "huntercook:PG1316S"
 			(pin_names
 				(offset 1.016)
 				(hide yes)
@@ -2515,7 +2515,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "huntercooh:RotaryEncoder_Switch"
+		(symbol "huntercook:RotaryEncoder_Switch"
 			(pin_names
 				(offset 0.254)
 				(hide yes)
@@ -2903,7 +2903,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "huntercooh:nice_nano"
+		(symbol "huntercook:nice_nano"
 			(exclude_from_sim no)
 			(in_bom no)
 			(on_board yes)
@@ -3556,6 +3556,107 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "power:PWR_FLAG"
+			(power)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#FLG"
+				(at 0 1.905 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "PWR_FLAG"
+				(at 0 3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Special symbol for telling ERC where power comes from"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "flag power"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "PWR_FLAG_0_0"
+				(pin power_out line
+					(at 0 0 90)
+					(length 0)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "PWR_FLAG_0_1"
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 1.27) (xy -1.016 1.905) (xy 0 2.54) (xy 1.016 1.905) (xy 0 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 	)
 	(junction
 		(at 107.95 31.75)
@@ -3742,6 +3843,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "5098c239-3889-4802-870d-b1c546793702")
+	)
+	(junction
+		(at 179.07 139.7)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "529775eb-7acd-4f96-98be-09e9ce22b5d2")
 	)
 	(junction
 		(at 41.91 33.02)
@@ -6301,6 +6408,28 @@
 			)
 		)
 	)
+	(global_label "5V"
+		(shape input)
+		(at 219.71 101.6 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "12e04ada-62a0-4763-865c-c758ed611be2")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 219.71 96.3167 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "R0"
 		(shape input)
 		(at 33.02 157.48 180)
@@ -6517,6 +6646,28 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "5V"
+		(shape input)
+		(at 232.41 101.6 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "46f71d44-9cca-489b-8e8f-b59a4052c932")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 232.41 96.3167 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 				(hide yes)
 			)
 		)
@@ -7315,6 +7466,28 @@
 	)
 	(global_label "5V"
 		(shape input)
+		(at 245.11 101.6 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "dcdcff19-1f5b-45f9-83bf-4616290bee49")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 245.11 96.3167 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "5V"
+		(shape input)
 		(at 173.99 80.01 270)
 		(fields_autoplaced yes)
 		(effects
@@ -8055,7 +8228,7 @@
 		)
 	)
 	(symbol
-		(lib_id "huntercooh:PG1316S")
+		(lib_id "huntercook:PG1316S")
 		(at 107.95 43.18 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8126,7 +8299,7 @@
 		)
 	)
 	(symbol
-		(lib_id "huntercooh:PG1316S")
+		(lib_id "huntercook:PG1316S")
 		(at 29.21 43.18 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8197,7 +8370,7 @@
 		)
 	)
 	(symbol
-		(lib_id "huntercooh:PG1316S")
+		(lib_id "huntercook:PG1316S")
 		(at 29.21 73.66 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8344,7 +8517,7 @@
 		)
 	)
 	(symbol
-		(lib_id "huntercooh:PG1316S")
+		(lib_id "huntercook:PG1316S")
 		(at 133.35 27.94 0)
 		(mirror y)
 		(unit 1)
@@ -8631,7 +8804,7 @@
 		)
 	)
 	(symbol
-		(lib_id "huntercooh:PG1316S")
+		(lib_id "huntercook:PG1316S")
 		(at 107.95 27.94 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8969,6 +9142,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 245.11 109.22 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2d17ef5a-67bc-4984-b775-ea0734bbb85d")
+		(property "Reference" "#PWR026"
+			(at 245.11 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 245.11 113.538 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 245.11 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 245.11 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 245.11 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "0fd61269-6aeb-4409-9805-6a4c1ed6a4a9")
+		)
+		(instances
+			(project "lightfury_right"
+				(path "/d9bcf8cc-0e06-4702-bbd2-69e5e7b1608f"
+					(reference "#PWR026")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 245.11 130.81 0)
 		(mirror y)
@@ -9033,6 +9272,138 @@
 			(project "lightfury_right"
 				(path "/d9bcf8cc-0e06-4702-bbd2-69e5e7b1608f"
 					(reference "C1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 232.41 109.22 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2f8e8c6a-cb49-432f-acb1-4636cc69887a")
+		(property "Reference" "#PWR025"
+			(at 232.41 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 232.41 113.538 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 232.41 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 232.41 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 232.41 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7b7a52a4-c826-4dc4-b721-fcc90b47b114")
+		)
+		(instances
+			(project "lightfury_right"
+				(path "/d9bcf8cc-0e06-4702-bbd2-69e5e7b1608f"
+					(reference "#PWR025")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 219.71 109.22 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "318f4fc4-1ded-4a8c-abc5-80a7b37aba83")
+		(property "Reference" "#PWR012"
+			(at 219.71 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 219.71 113.538 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 219.71 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 219.71 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 219.71 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d251deb7-0c58-4166-b60c-64fb58c7eca4")
+		)
+		(instances
+			(project "lightfury_right"
+				(path "/d9bcf8cc-0e06-4702-bbd2-69e5e7b1608f"
+					(reference "#PWR012")
 					(unit 1)
 				)
 			)
@@ -9260,7 +9631,7 @@
 		)
 	)
 	(symbol
-		(lib_id "huntercooh:PG1316S")
+		(lib_id "huntercook:PG1316S")
 		(at 29.21 58.42 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9331,7 +9702,77 @@
 		)
 	)
 	(symbol
-		(lib_id "huntercooh:PG1316S")
+		(lib_id "Device:C")
+		(at 232.41 105.41 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "37bf14da-ed09-4aef-aa62-f5df2d0e1c57")
+		(property "Reference" "C4"
+			(at 237.998 104.902 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10μF"
+			(at 237.998 107.442 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 231.4448 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 232.41 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 232.41 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9968db2a-4dd3-4343-a66f-c7a4ffc9499a")
+		)
+		(pin "2"
+			(uuid "5d7c0f9d-20e2-4c08-a860-2c62cbf9df8e")
+		)
+		(instances
+			(project "lightfury_right"
+				(path "/d9bcf8cc-0e06-4702-bbd2-69e5e7b1608f"
+					(reference "C4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "huntercook:PG1316S")
 		(at 54.61 43.18 0)
 		(mirror y)
 		(unit 1)
@@ -9403,7 +9844,7 @@
 		)
 	)
 	(symbol
-		(lib_id "huntercooh:PG1316S")
+		(lib_id "huntercook:PG1316S")
 		(at 133.35 73.66 0)
 		(mirror y)
 		(unit 1)
@@ -9988,7 +10429,7 @@
 		)
 	)
 	(symbol
-		(lib_id "huntercooh:PG1316S")
+		(lib_id "huntercook:PG1316S")
 		(at 54.61 58.42 0)
 		(mirror y)
 		(unit 1)
@@ -10289,7 +10730,7 @@
 		)
 	)
 	(symbol
-		(lib_id "huntercooh:PG1316S")
+		(lib_id "huntercook:PG1316S")
 		(at 107.95 58.42 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -10360,7 +10801,7 @@
 		)
 	)
 	(symbol
-		(lib_id "huntercooh:nice_nano")
+		(lib_id "huntercook:nice_nano")
 		(at 52.07 161.29 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -10946,7 +11387,7 @@
 		)
 	)
 	(symbol
-		(lib_id "huntercooh:PG1316S")
+		(lib_id "huntercook:PG1316S")
 		(at 93.98 58.42 0)
 		(mirror y)
 		(unit 1)
@@ -11018,7 +11459,7 @@
 		)
 	)
 	(symbol
-		(lib_id "huntercooh:PG1316S")
+		(lib_id "huntercook:PG1316S")
 		(at 54.61 27.94 0)
 		(mirror y)
 		(unit 1)
@@ -11090,7 +11531,7 @@
 		)
 	)
 	(symbol
-		(lib_id "huntercooh:PG1316S")
+		(lib_id "huntercook:PG1316S")
 		(at 68.58 27.94 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -11237,7 +11678,7 @@
 		)
 	)
 	(symbol
-		(lib_id "huntercooh:PG1316S")
+		(lib_id "huntercook:PG1316S")
 		(at 68.58 91.44 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -11594,7 +12035,7 @@
 		)
 	)
 	(symbol
-		(lib_id "huntercooh:PG1316S")
+		(lib_id "huntercook:PG1316S")
 		(at 68.58 73.66 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -12012,6 +12453,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 69.85 137.16 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9f2fde43-ccc2-4488-8192-6ec7fccfe0be")
+		(property "Reference" "#FLG01"
+			(at 69.85 139.065 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 69.85 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 69.85 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 69.85 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 69.85 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ae563379-8407-406c-992c-64ceb4254d17")
+		)
+		(instances
+			(project ""
+				(path "/d9bcf8cc-0e06-4702-bbd2-69e5e7b1608f"
+					(reference "#FLG01")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 71.12 149.86 90)
 		(unit 1)
@@ -12205,6 +12712,76 @@
 			(project "lightfury_right"
 				(path "/d9bcf8cc-0e06-4702-bbd2-69e5e7b1608f"
 					(reference "#PWR010")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 219.71 105.41 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a1bafbee-6a11-4496-a277-2d23049cd929")
+		(property "Reference" "C3"
+			(at 225.298 104.902 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF"
+			(at 225.298 107.442 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 218.7448 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 219.71 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 219.71 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "411a201b-c703-4352-8db8-9d89f7648b92")
+		)
+		(pin "2"
+			(uuid "6411caf1-8816-4aff-b972-7d67e3dcf3d2")
+		)
+		(instances
+			(project "lightfury_right"
+				(path "/d9bcf8cc-0e06-4702-bbd2-69e5e7b1608f"
+					(reference "C3")
 					(unit 1)
 				)
 			)
@@ -13034,7 +13611,7 @@
 		)
 	)
 	(symbol
-		(lib_id "huntercooh:PG1316S")
+		(lib_id "huntercook:PG1316S")
 		(at 54.61 73.66 0)
 		(mirror y)
 		(unit 1)
@@ -13173,7 +13750,7 @@
 		)
 	)
 	(symbol
-		(lib_id "huntercooh:PG1316S")
+		(lib_id "huntercook:PG1316S")
 		(at 29.21 27.94 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -13381,7 +13958,7 @@
 		)
 	)
 	(symbol
-		(lib_id "huntercooh:PG1316S")
+		(lib_id "huntercook:PG1316S")
 		(at 93.98 91.44 0)
 		(mirror y)
 		(unit 1)
@@ -13453,7 +14030,7 @@
 		)
 	)
 	(symbol
-		(lib_id "huntercooh:RotaryEncoder_Switch")
+		(lib_id "huntercook:RotaryEncoder_Switch")
 		(at 26.67 99.06 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -13608,7 +14185,7 @@
 		)
 	)
 	(symbol
-		(lib_id "huntercooh:PG1316S")
+		(lib_id "huntercook:PG1316S")
 		(at 133.35 58.42 0)
 		(mirror y)
 		(unit 1)
@@ -13824,7 +14401,73 @@
 		)
 	)
 	(symbol
-		(lib_id "huntercooh:PG1316S")
+		(lib_id "power:PWR_FLAG")
+		(at 179.07 139.7 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "dc4b02ba-6959-4542-9797-4153a7269132")
+		(property "Reference" "#FLG02"
+			(at 179.07 137.795 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 179.07 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 179.07 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 179.07 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 179.07 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d1e8ecc8-e6ca-40ae-ab99-60c1cb320ecd")
+		)
+		(instances
+			(project ""
+				(path "/d9bcf8cc-0e06-4702-bbd2-69e5e7b1608f"
+					(reference "#FLG02")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "huntercook:PG1316S")
 		(at 93.98 27.94 0)
 		(mirror y)
 		(unit 1)
@@ -14047,7 +14690,7 @@
 		)
 	)
 	(symbol
-		(lib_id "huntercooh:PG1316S")
+		(lib_id "huntercook:PG1316S")
 		(at 68.58 58.42 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -14118,7 +14761,7 @@
 		)
 	)
 	(symbol
-		(lib_id "huntercooh:PG1316S")
+		(lib_id "huntercook:PG1316S")
 		(at 68.58 43.18 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -14189,7 +14832,7 @@
 		)
 	)
 	(symbol
-		(lib_id "huntercooh:PG1316S")
+		(lib_id "huntercook:PG1316S")
 		(at 93.98 43.18 0)
 		(mirror y)
 		(unit 1)
@@ -14484,6 +15127,76 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C")
+		(at 245.11 105.41 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "eed9bb81-86bd-4e1e-8485-91696c20ec60")
+		(property "Reference" "C5"
+			(at 250.698 104.902 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10μF"
+			(at 250.698 107.442 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 244.1448 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 245.11 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 245.11 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6b52f41a-d453-4fa0-8e58-0ec3b838336c")
+		)
+		(pin "2"
+			(uuid "65772b82-ab96-4693-bdcc-28151344bafd")
+		)
+		(instances
+			(project "lightfury_right"
+				(path "/d9bcf8cc-0e06-4702-bbd2-69e5e7b1608f"
+					(reference "C5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 92.71 152.4 90)
 		(unit 1)
@@ -14551,7 +15264,7 @@
 		)
 	)
 	(symbol
-		(lib_id "huntercooh:PG1316S")
+		(lib_id "huntercook:PG1316S")
 		(at 133.35 43.18 0)
 		(mirror y)
 		(unit 1)
@@ -14767,7 +15480,7 @@
 		)
 	)
 	(symbol
-		(lib_id "huntercooh:PG1316S")
+		(lib_id "huntercook:PG1316S")
 		(at 93.98 73.66 0)
 		(mirror y)
 		(unit 1)
@@ -14921,7 +15634,7 @@
 		)
 	)
 	(symbol
-		(lib_id "huntercooh:PG1316S")
+		(lib_id "huntercook:PG1316S")
 		(at 107.95 73.66 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -14992,7 +15705,7 @@
 		)
 	)
 	(symbol
-		(lib_id "huntercooh:PG1316S")
+		(lib_id "huntercook:PG1316S")
 		(at 54.61 91.44 0)
 		(mirror y)
 		(unit 1)
