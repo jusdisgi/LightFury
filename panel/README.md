@@ -3,6 +3,11 @@
 Run on **your machine** (KiKit drives KiCad's `pcbnew` — it won't run in the sandbox). Route
 first, panelize after; the frame wraps the final outline.
 
+> ⚠ **Re-merge `both` first.** `lightfury_both.kicad_pcb` is assembled from the two halves and is
+> currently **stale** — it predates the decoupling caps (C3/C4/C5) and the PWR_FLAGs added to the
+> per-half boards. Propagate those into `both` (re-merge) and regenerate BOM/CPL **before** running
+> the panelizer, or the panel ships without the new parts.
+
 ## Command
 
 ```bash
@@ -30,4 +35,3 @@ board loops and bridges them to the rails with tabs + mouse-bites.
   bump tab count if any board edge feels under-supported for the 5 Ah / LCD weight during assembly.
 - Regenerate the BOM/CPL **from the panel file** if JLC wants per-panel placement; designators are
   already `_2`-suffixed for the second half.
-```

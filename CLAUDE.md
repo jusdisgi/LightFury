@@ -13,19 +13,33 @@ under `gittyup`; this is **LightFury**. Cross-cutting workspace rules live in `.
 - Feature set: 1.69" Waveshare color **LCD**, **per-key WS2812B-2020 RGB** (27/half), an
   on-PCB **CKW12 roller encoder** (rotary + push), and a **5 Ah** LiPo on a JST-PH connector.
 - ergogen `config.yaml` is layout source of truth. Routed boards: `lightfury_left/right.kicad_pcb`
-  (per-half) and `lightfury_both.kicad_pcb` (combined, the current/most-recent file — use it for
-  panelizing). Schematics: `lightfury_left/right.kicad_sch`, built via `Schematics_and_Ergogen.md`.
+  (per-half, where you edit/route) and `lightfury_both.kicad_pcb` (combined production board, no
+  schematic — assembled by merging the halves; panelize from this one).
+  Schematics: `lightfury_left/right.kicad_sch`, built via `Schematics_and_Ergogen.md`.
 - **Boards are routed — preserve the routing.** Only regen from ergogen if a real defect forces it
-  (regen wipes routing). The decoupling fixes below can be hand-added in KiCad without a regen.
+  (regen wipes routing). Retrofits (e.g. the decoupling caps added this session) go in via
+  *schematic → Update PCB from Schematic (F8)*, which only **adds** footprints and leaves tracks
+  alone. F8 is greyed unless the board is opened **through its project** (`lightfury_left.kicad_pro`),
+  not standalone and not on the `both` board (which has no schematic).
+
+## Stackup (matters for power integrity)
+
+- 4-layer. **In2.Cu is a full 5V plane; there's a GND plane too.** Each WS2812 vias its 5V and GND
+  pads straight to those planes (`p4_via`/`p2_via` in the footprint), so power distribution to the
+  LEDs is low-impedance everywhere — not a skinny trace that sags at the far end. This is why the
+  decoupling demands are modest (see below) despite 27 LEDs/half.
 
 ## Power architecture (understand before touching power nets)
 
 - Battery (BAT_P) → power slide switch → **RAW** → nice!nano. Nano provides **3V3** (logic/LCD).
-- **5V for the LEDs is boosted**, not from the nano: **U1 = TLV61070A** boost (L1 2.2µH, C1 in,
-  C2 out, R1 470k / R2 51k feedback → ~5.1 V). Enabled by **`5V_EN`** from the MCU.
+- **5V for the LEDs is boosted**, not from the nano: **U1 = TLV61070A** boost (L1 2.2µH, C1 in on
+  RAW, C2 out, R1 470k / R2 51k feedback → ~5.1 V). Enabled by **`5V_EN`** from the MCU.
 - LED data is level-shifted 3V3→5V by **U2** (see gotcha). The **same `5V_EN`** drives U1's EN
-  *and* U2's output-enable, so the level shifter is only driving when 5 V is actually up. Clean.
+  *and* U2's output-enable, so the level shifter only drives when 5 V is actually up. Clean.
 - Data path: MCU `LED_D3V` → U2 → `LED_D5V` → first LED → chain → last LED dead-ends.
+- **PWR_FLAGs** (for ERC): on **RAW** both halves; on **GND** the right half (left GND is already
+  driven by a power-output pin). RAW/GND originate at passive battery/connector pins, so ERC needs
+  the flags or it reports "power input not driven."
 
 ## LED data chain (verified continuous)
 
@@ -35,41 +49,81 @@ up pinky, down outer — ending at **finger outer-bottom** (`LED_27`, routes now
 **Ergogen ref numbering is reversed vs chain order**: switch/LED ref `S1`/`LED1` is *outer-bottom*
 (the chain's *end*), `LED27` is *thumb-far* (the *start*). Don't assume ref number = chain order.
 
+## Decoupling (done this session)
+
+Per half: **C1** 10µF (boost input/RAW), **C2** 10µF (boost output), **C3** 100nF (HF, beside U2 on
+the boost-output 5V — also bypasses U2's VCC), **C4** 10µF (reservoir out at the thumb cluster),
+**C5** 10µF (reservoir out at the outer/pinky corner). All 5V↔GND except C1 (RAW↔GND). With the 5V
+and GND planes, this is plenty — distribution was the heavy lifter, the caps are insurance.
+**Per-LED 100nF caps deliberately skipped**: they'd need an ergogen regen + reroute and would push
+SMT to two-sided. Revisit only if doing a v2 from the config (add them there so they auto-place).
+
 ## Gotchas
 
-- **U2 part: schematic says `SN74LVC1G125`, board/BOM use `SN74LV1T126DBVR` (LCSC C2440228).**
-  The **board is correct** — the '1T126 has **active-HIGH** output-enable, matching `5V_EN`
-  (a '125 is active-LOW and would be *disabled* when 5 V is on). **Order the '1T126.** Fix the
-  schematic symbol to match so it stops being misleading. This is the one real schematic↔PCB
-  parity error.
-- **Decoupling is thin.** Only 5 V cap is C2 (10µF, boost output). The 27 LEDs have **no local
-  decoupling** and U2 has **no VCC bypass cap**. Works in many builds, but it's the main
-  reliability risk. Safe fix that preserves routing: hand-place a 100nF on U2 VCC and a couple of
-  distributed 1–10µF 0603s on the 5 V pour in KiCad (no ergogen regen needed).
-- **5 V trace width** = `pwr_trace_width` 0.25 mm. Carries up to ~1 A near the boost at full-white.
-  Sanity-check the 5 V pour/trace near U1, or cap max LED brightness in the ZMK firmware.
+- **U2 = `SN74LV1T126DBVR` (LCSC C2440228).** Board Value field and BOM are correct. The schematic
+  *symbol* is still the generic `74xGxx:SN74LVC1G125DBV` lib_id — only cosmetic: its OE is drawn
+  active-LOW, but the real '1T126 is **active-HIGH**, which is what makes tying OE to `5V_EN` correct
+  (buffer enabled exactly when 5 V is up). Netlist/value/BOM are right; the drawn bubble lies.
+  Optional cleanup: derive a proper 1T126 symbol in the `huntercook` lib and swap it.
+- **5V is a plane (In2.Cu), not a trace** — so the old `pwr_trace_width 0.25mm` worry is moot for
+  the LED rail. If brightness ever stresses things, cap max brightness in ZMK; don't chase traces.
 - **LCD1 is a mechanical-mount footprint only** (no pads). The LCD wires in through the 8-pin
   Molex PicoBlade header **CONN1**; it has no schematic symbol by design — not a parity error.
 - Matrix diodes are **BAV70** dual common-cathode (D1–D14/half): two key anodes share one row
   cathode (COL→ROW). The roller's push switch is the 28th matrix node (via D14, `C5`/`R3`).
+- **Symbol lib nickname is `huntercook`** (PG1316S, nice_nano, RotaryEncoder_Switch, the CJIANG
+  inductor). It *was* a typo `huntercooh` — fixed this session repo-wide in the schematics **and**
+  in KiCad's global `sym-lib-table`. Old backup/`_old`/`grin` copies may still say `huntercooh`.
+
+## ERC / DRC status
+
+- **ERC:** clean apart from `footprint_link_issues` warnings (footprints reference libs — empty `''`
+  and `ceoloide` — not in the current fp-lib-table). Pure config noise; the board has real
+  footprints. The PWR_FLAGs cleared the power-pin-not-driven errors.
+- **DRC:** `0 unconnected pads` (all caps fully routed). The only **errors** are 5
+  `copper_edge_clearance` on **RE1** — the CKW12 roller pads sit in the square cutout **by design**;
+  right-click → **Exclude** (or a rule area on RE1) to get a true-green DRC. Everything else is
+  cosmetic: silk crowding in the boost cluster, tiny value-field text, and `lib_footprint_mismatch`
+  "local override" on the older parts (C1/C2/U1/U2/L1/R1/R2) — harmless, the board's embedded copy
+  is what's fabbed; **don't** "Update Footprints from Library" on a routed board.
 
 ## Production / BOM
 
-- `Production_JLCPCBA/` is the current upload set (combined "both"): `JLCPCBA_BOM_Both.xls` +
-  `JLCPCBA_Positions_Both.csv`. The `production/` folder is older fab-toolkit scratch (its
-  `bom.csv` has **no** LCSC #s — don't use it; the `.xls` is the complete one).
-- **JLC BOM is complete** with LCSC #s: TLV61070A `C6881375`, SN74LV1T126 `C2440228`,
-  10µF `C1691`, 470k `C23178`, 51k `C23196`, BAV70 `C68978`, WS2812B-2020 `C965555`,
+- `Production_JLCPCBA/` (combined "both"): `JLCPCBA_BOM_Both.xls` + `JLCPCBA_Positions_Both.csv`.
+  The `production/` folder is older fab-toolkit scratch — ignore (its `bom.csv` has no LCSC #s).
+- **⚠ Production files are STALE** — the `both` board and the `Production_JLCPCBA/` BOM/CPL predate
+  the new caps (C3/C4/C5) and the PWR_FLAGs. Before fabbing: propagate the per-half changes into
+  `lightfury_both.kicad_pcb` (re-merge), then regenerate BOM/CPL.
+- **LCSC #s by part:** TLV61070A `C6881375`, SN74LV1T126 `C2440228`, 100nF `C14663` (C3),
+  470k `C23178`, 51k `C23196`, 2.2µH `C39676081`, BAV70 `C68978`, WS2812B-2020 `C965555`,
   CKW12 encoder `C202421` + switch `C262417`, LCD header `C293349`, power SW `C2911519`,
   reset SW `C79174`, **PG1316S consigned `C9900170245`**.
-- **JLC-placed: 160 parts/panel**, all top-side (single-sided SMT = cheaper). **Hand-soldered /
-  not in JLC BOM:** nice!nano (DNP), Waveshare LCD module, JST-PH battery connector, M2 mounting
-  holes. Verify WS2812B-2020 + boost/level-shifter stock before ordering.
+- **10µF caps — voltage matters:** **C1** (on RAW) stays `C1691` (Samsung, 10µF **6.3V** 0603).
+  **C2/C4/C5 are on the ~5.1V boost rail** — `C1691`'s 6.3V rating droops to ~30-40% of 10µF under
+  that DC bias, so upgrade them to **`C15850`** (Samsung 10µF **25V** X5R **0805**, JLC *Basic*;
+  needs a 0603→0805 footprint swap) or, drop-in same-0603, **`C91606`** (Murata 10µF 25V 0603,
+  *extended* part). C15850 0805 keeps far more real capacitance — preferred for the reservoirs.
+- Codes validated against LCSC this session; `C39676081`/`C293349`/`C262417`/`C9900170245`
+  couldn't be re-confirmed via search (they came from the existing BOM / are consigned) — fine, but
+  a JLC dry-run will confirm.
+- **Hand-soldered / not JLC-placed:** nice!nano (DNP), Waveshare LCD module, JST-PH battery
+  connector, M2 mounting holes. SMT is single-sided (top) — keep it that way for cost.
 
 ## Panelization
 
-KiKit multiboard, run on Hunter's machine (needs `pcbnew`). Config + command in `panel/`. Route
-first, panelize after. See `panel/README.md`.
+KiKit multiboard, run on Hunter's machine (needs `pcbnew`). Config + command in `panel/`. Route and
+re-merge `both` first, panelize after. See `panel/README.md`.
+
+## Open items (next session)
+
+1. **Enter LCSC fields in the schematics** (Symbol Fields Table → add `LCSC` column). Not done yet;
+   mapping is in Production/BOM above. The Bennymeg fab toolkit reads the field named `LCSC`.
+2. **Exclude the 5 RE1 edge-clearance DRC errors** (by design) for a clean DRC.
+3. **Re-merge per-half changes into `lightfury_both` + regenerate BOM/CPL** (caps + flags are not in
+   the production set yet).
+4. **Panelize** with the `panel/` KiKit config.
+5. Optional: swap U2 to a proper active-high-OE symbol; hide tiny value-field silk in the boost
+   cluster to clear cosmetic DRC warnings.
 
 ## Git — hands off (workspace rule)
 
