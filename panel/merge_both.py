@@ -16,9 +16,8 @@ NOTE: appendBoard's signature is the part most likely to vary by KiKit version. 
 errors, that's the line to check first.
 """
 import os
-from pcbnew import VECTOR2I, FromMM
-from kikit.panelize import Panel
-from kikit.defs import Origin
+from pcbnew import VECTOR2I, FromMM, EDA_ANGLE, DEGREES_T
+from kikit.panelize import Panel, Origin
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)                       # LightFury/
@@ -26,27 +25,40 @@ LEFT  = os.path.join(ROOT, "lightfury_left.kicad_pcb")
 RIGHT = os.path.join(ROOT, "lightfury_right.kicad_pcb")
 OUT   = os.path.join(ROOT, "lightfury_both.kicad_pcb")
 
-# Each half's outline is ~156 mm wide. Place the right half this far to the right of the
-# left so there's a small gap (tune if you want them tighter for a cheaper panel).
-GAP_MM = 165
+# Stack the halves VERTICALLY using CENTER-anchored placement. Center anchoring is
+# rotation-invariant, so flipping the bottom half 180 deg behaves predictably (TopLeft does
+# not — the corner moves when you rotate). Each outline is ~156 x ~116.4 mm.
+# PITCH_MM = vertical center-to-center spacing; gap between facing edges = PITCH - 116.4.
+BOARD_W = 156.1
+BOARD_H = 116.4
+PITCH_MM = 94.0          # vertical center-to-center; tune for the gap you want
+CX = BOARD_W / 2.0
+# The flat bottom edge sits ~TILT deg off horizontal in the source boards (Hunter measured
+# the left bottom at -10.9 deg). We rotate each half by TILT so both flat bottoms are level,
+# giving the tightest rectangle. If a half ends up tilted the WRONG way, flip TILT's sign
+# (and the right half becomes 180 + TILT).
+TILT = 10.9
 
 panel = Panel(OUT)
 
-# Left half: nets -> L_<name>, refs unchanged.
+# Top half: centered, no rotation. nets -> L_<name>, refs unchanged.
 panel.appendBoard(
     LEFT,
-    VECTOR2I(0, 0),
-    origin=Origin.TopLeft,
+    VECTOR2I(FromMM(CX), FromMM(BOARD_H / 2.0)),
+    origin=Origin.Center,
+    rotationAngle=EDA_ANGLE(TILT, DEGREES_T),
     netRenamer=lambda seq, name: f"L_{name}",
     refRenamer=lambda seq, ref: ref,
     inheritDrc=False,
 )
 
-# Right half: nets -> R_<name>, refs -> <ref>_2  (C1->C1_2, S1->S1_2, RE1->RE1_2, ...).
+# Bottom half: centered below, rotated 180 deg about its own center so the straight bottom
+# edges face each other. nets -> R_<name>, refs -> <ref>_2 (C1->C1_2, S1->S1_2, RE1->RE1_2).
 panel.appendBoard(
     RIGHT,
-    VECTOR2I(FromMM(GAP_MM), 0),
-    origin=Origin.TopLeft,
+    VECTOR2I(FromMM(CX), FromMM(BOARD_H / 2.0 + PITCH_MM)),
+    origin=Origin.Center,
+    rotationAngle=EDA_ANGLE(180 - TILT, DEGREES_T),
     netRenamer=lambda seq, name: f"R_{name}",
     refRenamer=lambda seq, ref: f"{ref}_2",
     inheritDrc=False,

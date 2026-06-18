@@ -4,6 +4,14 @@ Run on **your machine** (KiKit drives KiCad's `pcbnew` — it won't run in the s
 per-half boards (`lightfury_left/right.kicad_pcb`) are the source of truth; everything below
 rebuilds the combined board and panel from them, so re-run it any time a half changes.
 
+**Environment:** use the **KiCad Command Prompt** (so `python` = KiCad's Python with `pcbnew`).
+KiKit's `kikit.exe` installs to `...KiCad\9.0\3rdparty\Python311\Scripts`, which isn't on PATH by
+default — add it for the session before the `kikit` commands:
+
+```bat
+set PATH=%PATH%;C:\Users\hunte\Documents\KiCad\9.0\3rdparty\Python311\Scripts
+```
+
 ## Full workflow (in order)
 
 ```bash
@@ -17,14 +25,16 @@ python panel/merge_both.py
 # 2. Frame it into a panel.
 kikit panelize -p panel/lightfury.kikit.json lightfury_both.kicad_pcb panel/lightfury_panel.kicad_pcb
 
-# 3. Generate JLC fab files (gerbers + BOM + CPL) from the panel.
-kikit fab jlcpcb --assembly --schematic lightfury_left.kicad_sch panel/lightfury_panel.kicad_pcb panel/jlc
-#    (the --schematic flag is what pulls the LCSC fields into the BOM; adjust if your kikit
-#     version wants a different invocation)
+# 3. Generate JLC fab files from the panel. DON'T use `kikit fab jlcpcb --assembly` — it
+#    requires a schematic, and the panel's _2-suffixed refs won't match a single half
+#    schematic (and it skips JLC rotation corrections). Instead, open the panel in pcbnew
+#    and run the **Fabrication Toolkit** plugin (the one that made the original
+#    Production_JLCPCBA files). It reads the LCSC footprint fields + applies JLC rotation
+#    corrections, straight from the board. Outputs gerbers + BOM + CPL into panel/production/.
 
 # 4. Fold in the CKW12 click switch (RESW1 / C262417) — not a footprint of its own, so it's
-#    injected into the BOM + CPL from the encoder's switch pads.
-python panel/inject_resw1.py panel/lightfury_panel.kicad_pcb panel/jlc
+#    injected into the toolkit's BOM + CPL from the encoder's switch pads.
+python panel/inject_resw1.py panel/lightfury_panel.kicad_pcb panel/production
 ```
 
 ## Notes / gotchas
