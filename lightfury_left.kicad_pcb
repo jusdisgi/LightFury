@@ -304,6 +304,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C9900170245"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6a4818e9-9bde-414a-9901-724727c7df11")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/34aabd62-834f-43cd-9b97-c1c477aacccc")
 		(sheetname "/")
 		(sheetfile "lightfury_left.kicad_sch")
@@ -551,6 +564,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C9900170245"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b1bc7aeb-7a12-4385-b687-60c40c44bfe6")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -804,6 +830,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C293349"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "49168ca1-df96-4421-ab76-2e97351fd509")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -1284,6 +1323,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C965555"
+			(at 0 0 184)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7d5367d1-1a3c-48e0-8bc4-3648ded38644")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "LED*WS2812*-2020_PLCC4*")
 		(path "/f8e7cfb4-b57f-43ee-9e37-92153661a3ce")
 		(sheetname "/")
@@ -1552,7 +1604,7 @@
 				)
 			)
 		)
-		(property "Value" "10µF"
+		(property "Value" "10µF 25V"
 			(at 0 1.43 0)
 			(layer "F.Fab")
 			(uuid "236449c5-da9a-4ac7-9670-c8fb5c82e8ec")
@@ -1583,6 +1635,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C91606"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "381deb37-9efd-4ca4-972d-8c4d83ee8b20")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -1781,6 +1846,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C9900170245"
+			(at 0 0 1)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d4f9fabd-2948-4f59-9c16-46d319697711")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -2003,7 +2081,7 @@
 				)
 			)
 		)
-		(property "Value" "10μF"
+		(property "Value" "10μF 25V"
 			(at 2.595 0.05 90)
 			(layer "F.SilkS")
 			(uuid "0863530f-22ec-4561-935c-2f818a61dc5f")
@@ -2035,6 +2113,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C91606"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5a35a347-108e-4532-832a-100dab23e5c4")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -2235,6 +2326,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C965555"
+			(at 0 0 3)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4537c8f2-1e6e-4c45-b898-dcd72ea461ad")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -2669,6 +2773,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C68978"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1694503f-545f-4de0-8c2c-28690fef7a67")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "SOT?23*")
 		(path "/31cc00d2-3318-42d6-882f-8372ad5e8f04")
 		(sheetname "/")
@@ -2816,6 +2933,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C965555"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "05ab3313-b853-4615-8308-7fec517ac4f6")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -3122,6 +3252,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C9900170245"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4dca1c99-d778-465a-8ee8-160041acdac1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/14dd7906-309d-43a1-8f8d-c907fd8135e0")
 		(sheetname "/")
 		(sheetfile "lightfury_left.kicad_sch")
@@ -3369,6 +3512,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C9900170245"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a7baf91b-76cf-4ab0-8c2f-a151c4a5466d")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -3622,6 +3778,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C6881375"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4e42b3a6-a699-4c59-8522-82169d60ee6a")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -3880,6 +4049,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C68978"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "eaa6be5b-74e6-4b92-a56d-986211b8374b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "SOT?23*")
 		(path "/322d7857-0423-44ce-ab69-a1f1f472757a")
 		(sheetname "/")
@@ -4025,6 +4207,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C68978"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9ba43d20-03b5-4df8-90f5-551132bbc601")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -4176,6 +4371,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C965555"
+			(at 0 0 3)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ffe95fc9-3938-449a-b0fc-a1984b25c275")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -4484,6 +4692,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C965555"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "edd6e97e-31e8-4937-ba14-1982fda3b2a0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "LED*WS2812*-2020_PLCC4*")
 		(path "/e0035450-2362-4d64-86b1-73c2fafb05a6")
 		(sheetname "/")
@@ -4786,6 +5007,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C68978"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2263669a-4927-477b-953f-351316ebb385")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "SOT?23*")
 		(path "/4667d94e-f991-4ddb-bea4-cee3e57a1f8d")
 		(sheetname "/")
@@ -4931,6 +5165,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C68978"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5a8663b0-f094-4bcf-b650-d81fe453386d")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -5082,6 +5329,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C965555"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "124ccf71-6e51-45f5-8f7f-49301e5e85dc")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -5391,6 +5651,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C1691"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "32513ae0-bd59-4537-84a1-6f07f31a8e0b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/2dbf66f9-40ae-4c5b-a954-27496573eebb")
 		(sheetname "/")
@@ -5587,6 +5860,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C965555"
+			(at 0 0 181)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "de095e8d-68dd-492d-b53f-c4fffc605bd3")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -5895,6 +6181,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C965555"
+			(at 0 0 181)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5bd4c040-c158-4998-a827-77e16716c53a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "LED*WS2812*-2020_PLCC4*")
 		(path "/0bde32f0-3a24-4027-a123-fc4b159b4afe")
 		(sheetname "/")
@@ -6197,6 +6496,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C9900170245"
+			(at 0 0 1)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "117159b9-9de3-4b72-937c-ba7986830b3b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/f8eb1f7f-79d9-4ef6-bd5f-d9eb8d7d36a4")
 		(sheetname "/")
 		(sheetfile "lightfury_left.kicad_sch")
@@ -6448,6 +6760,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C68978"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f1ea9329-dae4-454d-86e3-a140adbe921c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "SOT?23*")
 		(path "/af111cbf-80a7-4d3c-a465-5fcbea8e990c")
 		(sheetname "/")
@@ -6656,6 +6981,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C965555"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d7929c9a-2927-4c03-96a6-f3dc2582cf7b")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -6962,6 +7300,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C9900170245"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7cf0db4a-7b04-4a0a-aa09-79ca369085be")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/e655fba5-b4ac-4afc-83a7-80f597c6a155")
 		(sheetname "/")
 		(sheetfile "lightfury_left.kicad_sch")
@@ -7209,6 +7560,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C9900170245"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "40d33912-7054-47c4-bc8e-e0c98247b95d")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -7462,6 +7826,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C965555"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4b69c510-ea20-45aa-a283-d076e36e28cc")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -7768,6 +8145,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C68978"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "faf14ca9-ea2a-44b7-8707-ae9a59ea033c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "SOT?23*")
 		(path "/0043fa51-346a-4388-bca7-bda1ff9a1103")
 		(sheetname "/")
@@ -8039,6 +8429,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C9900170245"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "80f35638-bb17-4acb-bb1e-e2b8615988b1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/61c9d0c0-4b7b-4a3e-b7de-94f63cfe10d2")
 		(sheetname "/")
 		(sheetfile "lightfury_left.kicad_sch")
@@ -8288,6 +8691,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C965555"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2b1ddfd0-43ea-495b-befa-220a35c99351")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -8594,6 +9010,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C9900170245"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4322572a-2949-4419-8e3d-6ddb9213e02a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/c2c703e5-8929-4e3e-a55f-97f9a52808cb")
 		(sheetname "/")
 		(sheetfile "lightfury_left.kicad_sch")
@@ -8845,10 +9274,23 @@
 				)
 			)
 		)
+		(property "LCSC" ""
+			(at 0 0 352)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "46dd01c2-e910-453b-b309-d7dcbe3b9fa8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/51c83cfb-d52d-4dcd-bea3-f9935b0abac6")
 		(sheetname "/")
 		(sheetfile "lightfury_left.kicad_sch")
-		(attr exclude_from_pos_files exclude_from_bom)
+		(attr exclude_from_pos_files exclude_from_bom dnp)
 		(fp_line
 			(start -8.95 16.569999)
 			(end -6.290001 16.57)
@@ -9623,6 +10065,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C9900170245"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c1e7b793-fe91-424d-9371-5589158ae66d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/47a81158-3dbb-4ae3-a2ed-152ae406666a")
 		(sheetname "/")
 		(sheetfile "lightfury_left.kicad_sch")
@@ -9870,6 +10325,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C9900170245"
+			(at 0 0 4)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ba1f4ad5-8eb9-4469-9947-e5a8dce9343f")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -10186,6 +10654,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C2911519"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "615d70dc-ba86-4abb-be4d-ae19b8284a05")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/a4c697fa-e48a-4118-8fe0-5b58446f707f")
 		(sheetname "/")
 		(sheetfile "lightfury_left.kicad_sch")
@@ -10491,6 +10972,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C9900170245"
+			(at 0 0 3)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2604e9ea-2eb7-44bb-9d13-5ee8a54b3499")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/14c2d019-808d-4024-9266-17e1ef55bc54")
 		(sheetname "/")
 		(sheetfile "lightfury_left.kicad_sch")
@@ -10738,6 +11232,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C9900170245"
+			(at 0 0 1)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "49a5ae25-6516-43b2-a5a9-42dd09b7d212")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -10993,6 +11500,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C68978"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "91f71665-6853-43e1-b6dc-f2b6e238a26a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "SOT?23*")
 		(path "/02f0f358-b960-4fe5-b6d7-4552635b07fa")
 		(sheetname "/")
@@ -11142,6 +11662,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C68978"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e82a32d8-4c2e-4417-8910-90c855055f1a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "SOT?23*")
 		(path "/484f7fba-f478-4376-b7ea-b82089884e1a")
 		(sheetname "/")
@@ -11287,6 +11820,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C68978"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "20351ba7-1ad1-4cd5-b645-40a9cd33e4e5")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -11499,6 +12045,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C965555"
+			(at 0 0 181)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "51c6aa55-9b7c-403a-8653-b4abc0503ed0")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -11803,6 +12362,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C965555"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8cc2d825-1e87-4c56-9d6c-421b297a1ece")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -12112,6 +12684,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C2440228"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0c1f2352-9855-4361-a9f3-58dccd27f4d3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "SOT?23*")
 		(path "/aadf19ec-6279-4873-8e70-bf00feb34b13")
 		(sheetname "/")
@@ -12319,7 +12904,7 @@
 				)
 			)
 		)
-		(property "Value" "10µF"
+		(property "Value" "10µF 25V"
 			(at 0 1.43 0)
 			(layer "F.Fab")
 			(uuid "a3c18b68-5b7e-4e14-9422-ed9d9de7070c")
@@ -12350,6 +12935,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C91606"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a98fefe7-dd86-42ce-8f56-e8a1cdd9faa8")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -12550,6 +13148,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C965555"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f9cabdac-9b0e-4890-9c3a-f67e525a7c40")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -12858,6 +13469,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C965555"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4a24de37-3f81-4933-873c-fedf685195f8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "LED*WS2812*-2020_PLCC4*")
 		(path "/0d7c703f-0cd6-4472-b052-1532c5821154")
 		(sheetname "/")
@@ -13160,6 +13784,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C9900170245"
+			(at 0 0 345)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "88552441-d059-4dda-bca6-2858528f3018")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/758d8af2-d579-4972-80cd-edf443717579")
 		(sheetname "/")
 		(sheetfile "lightfury_left.kicad_sch")
@@ -13409,6 +14046,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C965555"
+			(at 0 0 345)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "70e00d74-b041-4606-9c38-52f9e31f73f5")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -13715,6 +14365,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C9900170245"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0ffcec74-a576-4f3c-9acd-c7dabc265257")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/3c485f76-d72c-431a-b01f-47eb39253e82")
 		(sheetname "/")
 		(sheetfile "lightfury_left.kicad_sch")
@@ -13962,6 +14625,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C9900170245"
+			(at 0 0 1)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "61c78b6a-c4eb-454f-a5f7-2024afac1eac")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -14215,6 +14891,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C965555"
+			(at 0 0 3)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3b69e5ad-e59a-4687-9704-08bb557d6319")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -14519,6 +15208,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C965555"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e218fa40-e29d-406f-ad31-f713dccf0913")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -14947,6 +15649,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C9900170245"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f7706927-405b-4ce8-a3c3-7c85b1e74e71")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/19adf3d4-552d-438c-bc19-d5ff32986a60")
 		(sheetname "/")
 		(sheetfile "lightfury_left.kicad_sch")
@@ -15198,6 +15913,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C68978"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "157ee0d0-34b2-478f-9a8a-5391cda11f02")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "SOT?23*")
 		(path "/7b0c8fd1-338e-48ae-b69e-cbfeecbb3df5")
 		(sheetname "/")
@@ -15345,6 +16073,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C965555"
+			(at 0 0 3)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6bd667a3-e779-4c73-b55c-1698a734eaee")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -15653,6 +16394,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C965555"
+			(at 0 0 184)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e0f6e40f-cad8-4245-9466-a643aa4d9f21")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "LED*WS2812*-2020_PLCC4*")
 		(path "/19bd531d-f128-4c1e-af09-241cbae21bac")
 		(sheetname "/")
@@ -15955,6 +16709,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C68978"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "36b515de-2f75-4b20-86b4-eef5a2de313f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "SOT?23*")
 		(path "/91c1f4a6-91a5-4aa9-a360-74f785a4db72")
 		(sheetname "/")
@@ -16100,6 +16867,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C9900170245"
+			(at 0 0 3)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7f75a6c1-f270-4bd3-ae57-2b7002355eb3")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -16353,6 +17133,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C202421"
+			(at 0 0 75)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "eda963bd-5421-4842-b58d-3d649de80006")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -16800,6 +17593,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C965555"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "55c6eca1-3621-43a1-bb07-d921e7d25121")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "LED*WS2812*-2020_PLCC4*")
 		(path "/31a95f85-b74d-4cf0-96ac-52fef960c64e")
 		(sheetname "/")
@@ -17102,6 +17908,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C9900170245"
+			(at 0 0 4)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c81bdbe4-ad20-489d-ac61-8530c05fb517")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/f16ba6db-3c62-4464-ae60-4328f73109db")
 		(sheetname "/")
 		(sheetfile "lightfury_left.kicad_sch")
@@ -17351,6 +18170,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C965555"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "aa84ae40-b7d1-4d47-9037-799045f7c13f")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -17660,6 +18492,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C39676081"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3d1d052e-da66-4aeb-89e1-4e18e920519d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Choke_* *Coil* Inductor_* L_*")
 		(path "/01c3a728-adb3-43b1-b036-2fd904ed99a1")
 		(sheetname "/")
@@ -17896,6 +18741,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C9900170245"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d4ef89c7-b524-4d8e-8ca6-2f54d32c4845")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -18147,6 +19005,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C9900170245"
+			(at 0 0 4)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5e990ae5-0110-4ee0-94cf-33e9c8067443")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -18403,6 +19274,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C14663"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "69704a65-54f5-4dcc-a69e-33d8f5e9518b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/bfdcac43-a973-4b54-9903-ca038c379d9e")
 		(sheetname "/")
@@ -18599,6 +19483,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C965555"
+			(at 0 0 184)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b2121f44-5ea5-4f91-8a73-1bcdd5062097")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -18905,6 +19802,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C68978"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "575b6989-3472-4310-ad72-3243b7646729")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "SOT?23*")
 		(path "/b48d546b-cdcc-45eb-9bee-753593427d01")
 		(sheetname "/")
@@ -19053,6 +19963,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C23196"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9f5890ac-5317-41db-9be8-c342ec1dfce3")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -19251,6 +20174,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C9900170245"
+			(at 0 0 4)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4a790635-47ef-42ee-b6ca-7b0f62b90079")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -19509,6 +20445,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C23178"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "71c4b271-4df4-4b00-ba2c-f4cca4da7c04")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/c6392d82-4704-47c3-aa87-4cf63b84ea1f")
 		(sheetname "/")
@@ -19705,6 +20654,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C965555"
+			(at 0 0 330)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "bcb7415e-4d1e-4019-961a-190782262476")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -20011,6 +20973,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C68978"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a9bc125c-6afa-495d-a099-10fa9a454ddd")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "SOT?23*")
 		(path "/52988c9e-d8f5-4ba3-98a5-ca3c7df60271")
 		(sheetname "/")
@@ -20156,6 +21131,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C79174"
+			(at 0 0 352)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d55ee55c-a84f-4849-9ef5-ac0cdd4996cc")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -20414,6 +21402,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C9900170245"
+			(at 0 0 3)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7fb8646a-b2a6-40d8-893c-bd5477c91ff2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/233c1751-2bde-49bf-8d27-b7bc9c7d999a")
 		(sheetname "/")
 		(sheetfile "lightfury_left.kicad_sch")
@@ -20661,6 +21662,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C9900170245"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b8f94542-7d84-41f9-9d4d-746a613a1138")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -20914,6 +21928,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C965555"
+			(at 0 0 181)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d66a9be9-42ab-4367-9b07-f2b75b26271e")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -21220,6 +22247,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C9900170245"
+			(at 0 0 330)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5948382d-4c94-43d2-90fd-54dd9da9d95f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/fe8004b1-2ed6-45dd-a206-c6469f0e90da")
 		(sheetname "/")
 		(sheetfile "lightfury_left.kicad_sch")
@@ -21469,6 +22509,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C965555"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f412614e-e177-4e5f-9e48-60f8c0645418")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -21777,6 +22830,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C965555"
+			(at 0 0 184)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "75395a4e-0069-4e3b-985c-8fc8f9d5cf90")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "LED*WS2812*-2020_PLCC4*")
 		(path "/40864512-76ef-4021-89df-045ece269282")
 		(sheetname "/")
@@ -22079,6 +23145,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C9900170245"
+			(at 0 0 3)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "feda97c7-db01-42c0-a1b1-3ffa1b047ad9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/4cb9d8a7-7540-4d20-945c-951d1a343938")
 		(sheetname "/")
 		(sheetfile "lightfury_left.kicad_sch")
@@ -22330,10 +23409,25 @@
 				)
 			)
 		)
+		(property "LCSC" ""
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "1b9914b5-57f6-479c-afba-73d146d2f0cc")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/1b2c05fc-2692-4093-8fdf-1a95b4776b60")
 		(sheetname "/")
 		(sheetfile "lightfury_left.kicad_sch")
+		(attr exclude_from_bom dnp)
 		(fp_line
 			(start 3.06 6.36)
 			(end 3.06 5.36)

@@ -111,8 +111,11 @@ SMT to two-sided. Revisit only if doing a v2 from the config (add them there so 
 
 ## Panelization
 
-KiKit multiboard, run on Hunter's machine (needs `pcbnew`). Config + command in `panel/`. Route and
-re-merge `both` first, panelize after. See `panel/README.md`.
+KiKit, run on Hunter's machine (needs `pcbnew`). The combined `both` board is now rebuilt **by
+script** from the two halves — no more by-hand merge. Pipeline (see `panel/README.md`):
+`merge_both.py` (append halves, right refs→`*_2`, nets→`L_`/`R_`) → `kikit panelize` (preset) →
+`kikit fab jlcpcb` → `inject_resw1.py` (adds the CKW12 switch RESW1/C262417 to BOM+CPL from the
+encoder's switch pads). Re-run the whole chain whenever a half changes.
 
 ## Open items (next session)
 
