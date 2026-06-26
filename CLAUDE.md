@@ -24,7 +24,9 @@ under `gittyup`; this is **LightFury**. Cross-cutting workspace rules live in `.
 
 ## Stackup (matters for power integrity)
 
-- 4-layer. **In2.Cu is a full 5V plane; there's a GND plane too.** Each WS2812 vias its 5V and GND
+- 6-layer (designed to JLC's 6-layer "advanced PCB" spec). **Dedicated power planes: In1.Cu +
+  In4.Cu are GND, In2.Cu + In3.Cu are 5V** (F.Cu/B.Cu also carry GND pours; In2/In3 also do signal
+  routing). Each WS2812 vias its 5V and GND
   pads straight to those planes (`p4_via`/`p2_via` in the footprint), so power distribution to the
   LEDs is low-impedance everywhere — not a skinny trace that sags at the far end. This is why the
   decoupling demands are modest (see below) despite 27 LEDs/half.
@@ -89,20 +91,26 @@ SMT to two-sided. Revisit only if doing a v2 from the config (add them there so 
 
 ## Production / BOM
 
-- `Production_JLCPCBA/` (combined "both"): `JLCPCBA_BOM_Both.xls` + `JLCPCBA_Positions_Both.csv`.
-  The `production/` folder is older fab-toolkit scratch — ignore (its `bom.csv` has no LCSC #s).
-- **⚠ Production files are STALE** — the `both` board and the `Production_JLCPCBA/` BOM/CPL predate
-  the new caps (C3/C4/C5) and the PWR_FLAGs. Before fabbing: propagate the per-half changes into
-  `lightfury_both.kicad_pcb` (re-merge), then regenerate BOM/CPL.
+- **CPL/BOM workflow is documented in `panel/CPL_WORKFLOW.md` — read it first.** Gerbers come from
+  the Fabrication Toolkit; the **CPL + BOM are generated separately by `panel/gen_cpl.py`** straight
+  from `panel/lightfury_panel.kicad_pcb` (same file as the gerbers → same origin → no offset). The
+  CPL hell of 18 Jun was caused by (a) a centroid "correction" that moved good parts off their pads
+  — **position = footprint origin is correct, never shift to pad centroid** — and (b) mixing a CPL
+  from one panel generation with gerbers from another. `inject_resw1.py` is **superseded; don't run it.**
+- Regenerate gerbers **and** CPL from the same panel generation, in lockstep, whenever a half changes.
+- **Repo layout (cleaned 19 Jun):** the JLC order set is `production-panel/` (one level deep:
+  `lightfury_panel.zip` + `bom.csv` + `positions.csv` + README). `panel/production/` is the
+  Fabrication Toolkit's transient scratch output — **gitignored**, don't fab from it (copy its zip up
+  to `production-panel/`). Dead May files (`Production_JLCPCBA/`, the old root `production/`, the
+  superseded `inject_resw1.py`) were moved to `old_cruft/` — safe to delete anytime.
 - **LCSC #s by part:** TLV61070A `C6881375`, SN74LV1T126 `C2440228`, 100nF `C14663` (C3),
   470k `C23178`, 51k `C23196`, 2.2µH `C39676081`, BAV70 `C68978`, WS2812B-2020 `C965555`,
   CKW12 encoder `C202421` + switch `C262417`, LCD header `C293349`, power SW `C2911519`,
   reset SW `C79174`, **PG1316S consigned `C9900170245`**.
-- **10µF caps — voltage matters:** **C1** (on RAW) stays `C1691` (Samsung, 10µF **6.3V** 0603).
-  **C2/C4/C5 are on the ~5.1V boost rail** — `C1691`'s 6.3V rating droops to ~30-40% of 10µF under
-  that DC bias, so upgrade them to **`C15850`** (Samsung 10µF **25V** X5R **0805**, JLC *Basic*;
-  needs a 0603→0805 footprint swap) or, drop-in same-0603, **`C91606`** (Murata 10µF 25V 0603,
-  *extended* part). C15850 0805 keeps far more real capacitance — preferred for the reservoirs.
+- **10µF caps:** **C1** (on RAW) = `C1691` (10µF 6.3V 0603 — fine there). **C2/C4/C5** (on the ~5.1V
+  rail) = **`C91606`** (Murata 10µF **25V** 0603, *extended* part) — the drop-in 0603 chosen to dodge
+  `C1691`'s 6.3V DC-bias droop without a footprint swap. (The 0805 `C15850`, 25V JLC *Basic*, retains
+  more capacitance but wasn't worth re-placing 6 caps.)
 - Codes validated against LCSC this session; `C39676081`/`C293349`/`C262417`/`C9900170245`
   couldn't be re-confirmed via search (they came from the existing BOM / are consigned) — fine, but
   a JLC dry-run will confirm.
@@ -111,23 +119,37 @@ SMT to two-sided. Revisit only if doing a v2 from the config (add them there so 
 
 ## Panelization
 
-KiKit, run on Hunter's machine (needs `pcbnew`). The combined `both` board is now rebuilt **by
-script** from the two halves — no more by-hand merge. Pipeline (see `panel/README.md`):
-`merge_both.py` (append halves, right refs→`*_2`, nets→`L_`/`R_`) → `kikit panelize` (preset) →
-`kikit fab jlcpcb` → `inject_resw1.py` (adds the CKW12 switch RESW1/C262417 to BOM+CPL from the
-encoder's switch pads). Re-run the whole chain whenever a half changes.
+KiKit + the Fabrication Toolkit, on Hunter's machine (needs `pcbnew`; `kikit.exe` lives in
+`...KiCad\9.0\3rdparty\Python311\Scripts`, add to PATH for the session). The `both` board is rebuilt
+**by script** — no more by-hand merge. Pipeline (see `panel/README.md`):
+
+1. `python panel/merge_both.py` — appends the halves into `lightfury_both.kicad_pcb`. Right-half refs
+   → `*_2`, nets → `L_`/`R_`. Halves stacked vertically, right half rotated 180° (+`TILT` so both
+   flat bottoms are level), ~3 mm gap, center-anchored placement. `both` is now a build
+   artifact — don't hand-edit it; fix the per-half board and re-run.
+   **`TILT` must be a whole number** (currently `11`). The per-half parts are all on integer-degree
+   orientations; a fractional `TILT` (the old `10.9`) put every part on a `.9`° angle, which JLC's
+   preview rounds and renders as a bogus "~1° off on the whole board." Integer tilt → integer angles
+   → clean preview. The CPL rotation already matches each footprint's orientation exactly (verified),
+   so this was only ever a display/rounding artifact, never a real misplacement.
+2. `kikit panelize -p panel/lightfury.kikit.json …` — full **frame**, **fixed** tabs (2/edge) +
+   mouse-bites, fiducials/tooling/text. (Tabs must be `fixed`, not `spacing` — spacing errored in
+   the concave notch between halves. The halves tab to the frame, not to each other; fine for fab.)
+3. **Fabrication Toolkit plugin** on `panel/lightfury_panel.kicad_pcb` — **for GERBERS only** (NOT
+   `kikit fab jlcpcb`, which needs a schematic the panel's `_2` refs can't match). V-Cut **off** — we
+   use mouse-bites. Ignore the CPL/BOM it emits; we generate those ourselves in step 4.
+4. `python panel/gen_cpl.py panel/lightfury_panel.kicad_pcb production-panel` — writes the real
+   `positions.csv` + `bom.csv` (position = footprint origin; integer rotations; RESW1/C262417 injected
+   from the encoder's S1/S2 pads). Then `python panel/render_cpl.py …` and eyeball the `verify_*.png`
+   before uploading. See `panel/CPL_WORKFLOW.md` for the one-time JLC rotation-confirmation step.
+
+Re-run the whole chain whenever a half changes.
 
 ## Open items (next session)
 
-1. **Enter LCSC fields in the schematics** (Symbol Fields Table → add `LCSC` column). Not done yet;
-   mapping is in Production/BOM above. The Bennymeg fab toolkit reads the field named `LCSC`.
-2. **Exclude the 5 RE1 edge-clearance DRC errors** (by design) for a clean DRC.
-3. **Re-merge per-half changes into `lightfury_both` + regenerate BOM/CPL** (caps + flags are not in
-   the production set yet).
-4. **Panelize** with the `panel/` KiKit config.
-5. Optional: swap U2 to a proper active-high-OE symbol; hide tiny value-field silk in the boost
-   cluster to clear cosmetic DRC warnings.
+LCSC fields are entered (84/half), caps swapped to C91606, `both` rebuilt by script, panel + BOM/CPL
+regenerated into `panel/production/` with RESW1 injected. A JLC-ready package exists. Remaining:
 
-## Git — hands off (workspace rule)
-
-Never run git. Write commands for Hunter; HTTPS remote `https://github.com/jusdisgi/LightFury`.
+1. **Confirm rotations in JLC's assembly preview (one clean pass), then bake into `gen_cpl.py`'s
+   `ROT_CORR`** (keyed by LCSC; `C965555` LED = 180 already confirmed). Positions are verified correct
+   locally — only per-LCSC pin-1 deltas 

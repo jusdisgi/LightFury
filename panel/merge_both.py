@@ -33,11 +33,12 @@ BOARD_W = 156.1
 BOARD_H = 116.4
 PITCH_MM = 94.0          # vertical center-to-center; tune for the gap you want
 CX = BOARD_W / 2.0
-# The flat bottom edge sits ~TILT deg off horizontal in the source boards (Hunter measured
-# the left bottom at -10.9 deg). We rotate each half by TILT so both flat bottoms are level,
-# giving the tightest rectangle. If a half ends up tilted the WRONG way, flip TILT's sign
-# (and the right half becomes 180 + TILT).
-TILT = 10.9
+# Rotate each half by TILT so the flat bottoms sit (near) level. The per-half parts are all at
+# WHOLE-degree orientations, so TILT must be an INTEGER — otherwise every part lands on a
+# fractional angle (e.g. 280.9 deg) that JLC's preview rounds, which reads as a ~1 deg error on
+# the whole board. The bottom edge measured -10.9 deg, so 11 levels it to within 0.1 deg while
+# keeping every part on a whole degree. (Flip TILT's sign if a half tilts the wrong way.)
+TILT = 11
 
 panel = Panel(OUT)
 

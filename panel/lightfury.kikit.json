@@ -53,7 +53,7 @@
     "vjustify": "center"
   },
   "post": {
-    "millradius": "1mm",
+    "millradiusouter": "1mm",
     "origin": "tl"
   }
 }

@@ -25,29 +25,41 @@ python panel/merge_both.py
 # 2. Frame it into a panel.
 kikit panelize -p panel/lightfury.kikit.json lightfury_both.kicad_pcb panel/lightfury_panel.kicad_pcb
 
-# 3. Generate JLC fab files from the panel. DON'T use `kikit fab jlcpcb --assembly` — it
-#    requires a schematic, and the panel's _2-suffixed refs won't match a single half
-#    schematic (and it skips JLC rotation corrections). Instead, open the panel in pcbnew
-#    and run the **Fabrication Toolkit** plugin (the one that made the original
-#    Production_JLCPCBA files). It reads the LCSC footprint fields + applies JLC rotation
-#    corrections, straight from the board. Outputs gerbers + BOM + CPL into panel/production/.
+# 3. GERBERS ONLY from the panel: open it in pcbnew and run the **Fabrication Toolkit** plugin
+#    (NOT `kikit fab jlcpcb` — needs a schematic the _2 refs can't match). It writes to the
+#    transient panel/production/ ; copy the gerber zip up to the canonical order folder:
+copy panel\production\lightfury_panel.zip production-panel\
 
-# 4. Fold in the CKW12 click switch (RESW1 / C262417) — not a footprint of its own, so it's
-#    injected into the toolkit's BOM + CPL from the encoder's switch pads.
-python panel/inject_resw1.py panel/lightfury_panel.kicad_pcb panel/production
+# 4. BOM + CPL straight from the panel (origin datum, integer rotations, RESW1 injected,
+#    per-part offsets) -> the canonical production-panel/ . Then render to verify locally.
+python panel/gen_cpl.py panel/lightfury_panel.kicad_pcb production-panel
+python panel/render_cpl.py panel/lightfury_panel.kicad_pcb production-panel/positions.csv panel/verify
 ```
+
+The three files you upload to JLC live in **production-panel/**. Full detail + the one-time JLC
+rotation-confirmation step: **CPL_WORKFLOW.md**.
 
 ## Notes / gotchas
 
+- **`post.millradius` eats the RE1 foot cutouts.** The CKW12 encoder has two ~2 mm diamond
+  (45°-square) Edge.Cuts cutouts per half for RE1's feet. `millradius` simulates a 1 mm-radius
+  (2 mm Ø) router bit across the *whole* substrate — including internal holes — so a sub-bit-size
+  cutout gets erased. Result: the diamonds are in `lightfury_both` but vanish from the panel.
+  Fix is in the preset: use **`millradiusouter`** (mills only the outer ring, leaves internal
+  cutouts intact) instead of `millradius`. If your KiKit predates `millradiusouter`, set
+  `millradius` to `0mm` and re-inject the 4 diamonds afterward (translate the both-board loops by
+  the panel placement offset — footprint-only, so BOM/CPL are untouched). **Always eyeball the
+  encoder cutouts in the panel before ordering.**
 - **`merge_both.py`** is the script that replaces your old hand-merge. Right-half refs become
   `*_2` (uniform — simpler than the old mixed RS/RLED/_2 scheme; JLC only cares that refs are
   unique and that BOM ↔ CPL agree, which they will since both come from this pipeline).
   `appendBoard`'s signature is the line most likely to need a tweak for your KiKit version.
 - **Prereq:** the per-half schematics need their `LCSC` fields filled and pushed to the PCBs
   (Update PCB from Schematic / F8) *before* step 1, or the BOM comes out without part numbers.
-- **`inject_resw1.py`** reads S1/S2 pad positions from the panel, so RESW1 placement always
-  matches the real board. The **rotation** is derived from the pad axis — eyeball it in JLC's
-  assembly preview and tweak if the switch looks turned the wrong way.
+- **`gen_cpl.py`** (pure Python, no pcbnew) builds the BOM + CPL directly from the panel: position
+  = footprint origin, per-LCSC `ROT_CORR`/`POS_OVERRIDE` tables, and RESW1 (C262417) injected from
+  the encoder's S1/S2 pads. It supersedes the old `inject_resw1.py` (now in `old_cruft/`).
+  `render_cpl.py` overlays the result on the real pads for local verification before uploading.
 - The preset's 1×1 grid frames the merged pair (two outlines) as one unit, bridging each half
   to the rails with mouse-bite tabs. If KiKit complains about the two outlines, the fallback is
   to move framing into `merge_both.py` (KiKit Python API) — ping me and I'll extend it.
